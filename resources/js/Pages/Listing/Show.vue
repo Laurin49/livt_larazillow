@@ -1,11 +1,33 @@
 <template>
-  <div>
-    <ListingAddress :listing="listing" />
+  <div class="flex flex-col-reverse gap-4 md:grid md:grid-cols-12">
+    <Box class="flex items-center md:col-span-7">
+      <div class="w-full font-medium text-center text-gray-500">No images</div>
+    </Box>
+    <div class="flex flex-col gap-4 md:col-span-5">
+      <Box>
+        <template #header>
+          Basic info
+        </template>
+        <Price :price="listing.price" class="text-2xl font-bold" />
+        <ListingSpace :listing="listing" class="text-lg" />
+        <ListingAddress :listing="listing" class="text-gray-500" />
+      </Box>
+
+      <Box>
+        <template #header>
+          Offer
+        </template>
+        Make an offer
+      </Box>
+    </div>
   </div>
 </template>
 
 <script setup>
 import ListingAddress from '@/Components/ListingAddress.vue'
+import ListingSpace from '@/Components/ListingSpace.vue'
+import Price from '@/Components/Price.vue'
+import Box from '@/Components/UI/Box.vue'
 defineProps({
   listing: Object,
 })

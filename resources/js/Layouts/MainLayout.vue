@@ -1,12 +1,25 @@
 <template>
-  <Link href="/">Main Page</Link>&nbsp;&nbsp;
-  <Link href="/listing">Listings</Link>&nbsp;&nbsp;
-  <Link href="/listing/create">Create Listings</Link>&nbsp;&nbsp;
-  <hr />
-  <div v-if="flashSuccess" class="success">
-    {{ flashSuccess }}
-  </div>
-  <slot />
+  <header class="w-full bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+    <div class="container mx-auto">
+      <nav class="flex items-center justify-between p-4">
+        <div class="text-lg font-medium">
+          <Link :href="route('listing.index')">Listings</Link>
+        </div>
+        <div class="text-xl font-bold text-center text-indigo-600 dark:text-indigo-300">
+          <Link :href="route('listing.index')">LaraZillow</Link>
+        </div>
+        <div>
+          <Link :href="route('listing.create')" class="btn-primary">+ New Listing</Link>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main class="container p-4 mx-auto">
+    <div v-if="flashSuccess" class="p-2 mb-4 border border-green-200 rounded-md shadow-sm dark:border-green-800 bg-green-50 dark:bg-green-900">
+      {{ flashSuccess }}
+    </div>
+    <slot>Default</slot>
+  </main>
 </template>
 <script setup>
 import { computed } from 'vue'
@@ -18,9 +31,3 @@ const flashSuccess = computed(
   () => page.props.value.flash.success,
 )
 </script>
-<style scoped>
-.success {
-  background-color: green;
-  color: white;
-}
-</style>
