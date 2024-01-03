@@ -24,7 +24,8 @@ class ListingFactory extends Factory
             'code' => fake()->postcode(),
             'street' => fake()->streetName(),
             'street_nr' => fake()->numberBetween(10, 200),
-            'price' => fake()->numberBetween(50_000, 2_000_00)
+            'price' => fake()->numberBetween(50_000, 2_000_00),
+            'by_user_id' => rand(1, 2)          // 1 für user, 2 für admin
         ];
     }
 }
