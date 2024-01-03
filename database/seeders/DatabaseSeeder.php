@@ -16,11 +16,26 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
+        // \App\Models\User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        //     'password' => 'password'
+        // ]);
         \App\Models\User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'd.welter',
+            'email' => 'welter@diwe-edv.de',
+            'password' => 'hsv1887tv',
+            'is_admin' => false
+        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Admin',
+            'email' => 'admin@hsv.de',
+            'password' => 'hsv1887tv',
+            'is_admin' => true
         ]);
 
-        \App\Models\Listing::factory(20)->create();
+        \App\Models\Listing::factory(20)->create([
+            //
+        ]);
     }
 }
